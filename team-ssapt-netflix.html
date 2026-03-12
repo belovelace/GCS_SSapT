@@ -590,19 +590,19 @@
   <p class="members-row-label">SSapT 팀원</p>
   <div class="members-thumbnails">
     <div class="thumb-card active" id="thumb-0" onclick="selectMember(0)">
-      <img class="thumb-img" src="https://avatars.githubusercontent.com/u/266888813?v=4" alt="김민성"/>
+      <img class="thumb-img" src="img/김민성_히어로.png" alt="김민성"/>
       <div class="thumb-label">
         김민성<br/><span class="thumb-mbti">INTJ</span>
       </div>
     </div>
     <div class="thumb-card" id="thumb-1" onclick="selectMember(1)">
-      <img class="thumb-img" src="https://avatars.githubusercontent.com/u/214237547?v=4" alt="박성진"/>
+      <img class="thumb-img" src="img/박성진_히어로.png" alt="박성진"/>
       <div class="thumb-label">
         박성진<br/><span class="thumb-mbti">ESTJ</span>
       </div>
     </div>
     <div class="thumb-card" id="thumb-2" onclick="selectMember(2)">
-      <img class="thumb-img" src="https://avatars.githubusercontent.com/u/159417728?v=4" alt="신은지"/>
+      <img class="thumb-img" src="img/신은지_히어로.png" alt="신은지"/>
       <div class="thumb-label">
         신은지<br/><span class="thumb-mbti">ENTJ</span>
       </div>
@@ -617,11 +617,7 @@
     <div class="detail-left">
       <img class="detail-photo" id="detail-photo" src="https://avatars.githubusercontent.com/u/266888813?v=4" alt="프로필"/>
       <div class="detail-qr-section">
-        <p class="detail-qr-label">QR 코드</p>
-        <div class="detail-qr">
-          <img id="detail-qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://github.com/github_id1" alt="QR"/>
-        </div>
-        <a class="detail-blog-link" id="detail-blog-link" href="#" target="_blank">↗ GitHub 방문하기</a>
+        <a class="detail-blog-link" id="detail-blog-link" href="https://www.linkedin.com/in/%EB%AF%BC%EC%84%B1-%EA%B9%80-007687390/" target="_blank">↗ LinkedIn 방문하기</a>
       </div>
     </div>
     <!-- 오른쪽 -->
@@ -709,9 +705,10 @@
       strength: '긍정적 사고 · 비판적 사고 탑재 · 다양한 지식 탑재 (로컬 환경에서 돌리는 LLM 수준 지식 확보)',
       hobbies: ['요리하기', '여행하기', '별 보러가기'],
       keywords: ['#직장인', '#가장나이많음', '#창의력', '#먹는거'],
-      qr: 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://github.com/github_id1',
-      blogUrl: '#',
-      blogLabel: 'GitHub 방문하기',
+      qr: 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://www.linkedin.com/in/%EB%AF%BC%EC%84%B1-%EA%B9%80-007687390/',
+      blogUrl: 'https://www.linkedin.com/in/%EB%AF%BC%EC%84%B1-%EA%B9%80-007687390/',
+      blogLabel: 'LinkedIn 방문하기',
+      github: 'https://github.com/GCS8-Minsung',
       matchScore: 'T 적합도 98%'
     },
     {
@@ -728,6 +725,7 @@
       qr: 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://blog.naver.com/beerbare',
       blogUrl: 'https://blog.naver.com/beerbare',
       blogLabel: '블로그 방문하기',
+      github: 'https://github.com/BeerKingSJPark',
       matchScore: 'T 적합도 100%'
     },
     {
@@ -744,6 +742,7 @@
       qr: 'https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://prairie-dietician-01c.notion.site/HI-I-m-Shin-Eun-ji-1bea7294037c440d9c06ee47081cb7bf',
       blogUrl: 'https://prairie-dietician-01c.notion.site/HI-I-m-Shin-Eun-ji-1bea7294037c440d9c06ee47081cb7bf?source=copy_link',
       blogLabel: 'Notion 방문하기',
+      github: 'https://github.com/belovelace',
       matchScore: 'T 적합도 97%'
     }
   ];
@@ -769,7 +768,6 @@
     document.getElementById('detail-intro-text').textContent = m.intro;
     document.getElementById('detail-work').textContent = m.work;
     document.getElementById('detail-strength').textContent = m.strength;
-    document.getElementById('detail-qr-img').src = m.qr;
     document.getElementById('detail-blog-link').href = m.blogUrl;
     document.getElementById('detail-blog-link').textContent = `↗ ${m.blogLabel}`;
 
@@ -796,7 +794,7 @@
 
   function openModal(idx) {
     const m = members[idx];
-    document.getElementById('modal-hero-img').src = m.photo;
+    document.getElementById('modal-hero-img').src = m.heroBg;
     document.getElementById('modal-name').textContent = m.name;
     document.getElementById('modal-mbti').textContent = m.mbti;
     document.getElementById('modal-dept').textContent = m.dept;
