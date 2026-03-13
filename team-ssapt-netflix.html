@@ -86,8 +86,8 @@
       background: linear-gradient(
         to right,
         rgba(20,20,20,0.95) 0%,
-        rgba(20,20,20,0.7) 40%,
-        rgba(20,20,20,0.1) 70%,
+        rgba(20,20,20,0.7) 10%,
+        rgba(20,20,20,0.1) 30%,
         transparent 100%
       ),
       linear-gradient(
@@ -547,9 +547,8 @@
 </head>
 <body>
 
-<!-- 네비 -->
 <nav>
-  <div class="netflix-logo">SSAPT</div>
+  <div class="netflix-logo">SsapT</div>
   <ul class="nav-links">
     <li><a href="#">홈</a></li>
     <li><a href="#">시리즈</a></li>
@@ -558,7 +557,6 @@
   </ul>
 </nav>
 
-<!-- 히어로 -->
 <div class="hero" id="hero">
   <div class="hero-bg" id="hero-bg" style="background-image: url('img/김민성_히어로.png')"></div>
   <div class="hero-gradient"></div>
@@ -585,7 +583,6 @@
   </div>
 </div>
 
-<!-- 팀원 썸네일 열 -->
 <div class="members-row">
   <p class="members-row-label">SSapT 팀원</p>
   <div class="members-thumbnails">
@@ -610,17 +607,14 @@
   </div>
 </div>
 
-<!-- 세부 정보 패널 -->
 <div class="detail-panel" id="detail-panel">
   <div class="detail-grid">
-    <!-- 왼쪽 -->
     <div class="detail-left">
       <img class="detail-photo" id="detail-photo" src="https://avatars.githubusercontent.com/u/266888813?v=4" alt="프로필"/>
       <div class="detail-qr-section">
         <a class="detail-blog-link" id="detail-blog-link" href="https://www.linkedin.com/in/%EB%AF%BC%EC%84%B1-%EA%B9%80-007687390/" target="_blank">↗ LinkedIn 방문하기</a>
       </div>
     </div>
-    <!-- 오른쪽 -->
     <div class="detail-right">
       <div class="detail-title-row">
         <h2 class="detail-name" id="detail-name">김민성</h2>
@@ -662,7 +656,6 @@
   </div>
 </div>
 
-<!-- 모달 -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -678,14 +671,15 @@
     </div>
     <div class="modal-body">
       <p style="font-size:14px;line-height:1.75;color:#d0d0d0;font-weight:300;margin-bottom:20px" id="modal-intro"></p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
         <div>
-          <p class="detail-section-title" style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#999;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #2a2a2a">일하는 방식</p>
-          <p style="font-size:13px;line-height:1.7;color:#d0d0d0;font-weight:300" id="modal-work"></p>
+          <p class="detail-section-title" style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#999;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #2a2a2a">관심있는 사업 분야</p>
+          <p style="font-size:13px;line-height:1.7;color:#d0d0d0;font-weight:300" id="modal-business"></p>
         </div>
         <div>
-          <p class="detail-section-title" style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#999;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #2a2a2a">나만의 강점</p>
-          <p style="font-size:13px;line-height:1.7;color:#d0d0d0;font-weight:300" id="modal-strength"></p>
+          <p class="detail-section-title" style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#999;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #2a2a2a">좋아하는 책</p>
+          <p style="font-size:13px;line-height:1.7;color:#d0d0d0;font-weight:300" id="modal-book"></p>
         </div>
       </div>
     </div>
@@ -701,6 +695,8 @@
       photo: 'https://avatars.githubusercontent.com/u/266888813?v=4',
       heroBg: 'img/김민성_히어로.png',
       intro: '아는 사람은 그것을 좋아하는 사람만 못하고, 좋아하는 사람은 즐기는 사람만 못하다. — 논어',
+      business: 'IT 기반 서비스 기획',
+      book: '논어',
       work: '모든 일은 즐기면서, 최대한 효율적으로, 완벽하게',
       strength: '긍정적 사고 · 비판적 사고 탑재 · 다양한 지식 탑재 (로컬 환경에서 돌리는 LLM 수준 지식 확보)',
       hobbies: ['요리하기', '여행하기', '별 보러가기'],
@@ -718,6 +714,8 @@
       photo: 'https://avatars.githubusercontent.com/u/214237547?v=4',
       heroBg: 'img/박성진_히어로.png',
       intro: '술이 익듯이 문제를 발효시키고 솔루션을 빚는 사람',
+      business: '참이슬과 카스를 넘어 모든 식당의 술판을 바꾸다: 대한민국 로컬 주류 보급 프로젝트',
+      book: '죽음은 통제할 수 없지만 삶은 설계할 수 있다<br>맥주 테이스팅 코스<br>세이노의 가르침<br>오늘도 마십니다, 맥주<br>우리술 이야기',
       work: '확고한 논리와 체계적인 실행력으로 팀을 이끌며, 솔직담백한 소통 방식과 해결책을 가져오는 대범하고 주도적인 행동파 리더',
       strength: '독립적으로 깊이 탐구하여 문제의 핵심을 꿰뚫어 보는 사고형(T)의 예리한 분석력과, 이를 바탕으로 큰 그림을 그리고 즉각적으로 결과를 만들어내는 강력한 추진력을 겸비',
       hobbies: ['수영하기', '독서하기', '테이스팅 노트 작성', '주류박람회 필참'],
@@ -735,6 +733,8 @@
       photo: 'https://avatars.githubusercontent.com/u/159417728?v=4',
       heroBg: 'img/신은지_히어로.png',
       intro: '한계에 도전하는 것을 즐기며, 협력을 통해 가치를 창조합니다.',
+      business: '데이터/LLM 활용 IT 비즈니스',
+      book: '이타카 (콘스탄티노스 카바피)',
       work: '어떤 일을 마무리 지으려는 욕구가 강합니다. 맡겨진 일에 대해 강한 책임감을 느끼며 힘차게 추진합니다. 새로운 가능성을 모색하고 아이디어를 구상하는 것에 흥미를 느끼며, 지적 호기심이 많고 어렵고 복잡한 문제를 해결하는 것에 매력을 느깁니다.',
       strength: '자신감 있고 강인한 사람. 결단력 있음.',
       hobbies: ['보사노바 듣기', '핀란드 사우나', '그리스 로마 신화 파헤치기', '강아지랑 함께하기'],
@@ -799,8 +799,11 @@
     document.getElementById('modal-mbti').textContent = m.mbti;
     document.getElementById('modal-dept').textContent = m.dept;
     document.getElementById('modal-intro').textContent = m.intro;
-    document.getElementById('modal-work').textContent = m.work;
-    document.getElementById('modal-strength').textContent = m.strength;
+    
+    // 추가된 변수 맵핑
+    document.getElementById('modal-business').textContent = m.business;
+    document.getElementById('modal-book').innerHTML = m.book;
+    
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
