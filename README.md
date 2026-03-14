@@ -132,5 +132,5 @@
 </table>
 
 <div align="center">
- <img src="https://github.com/belovelace/GCS_SSapT/blob/main/img/mbti_fianl.png" style="border-radius:50%"/>
+ <img src="https://github.com/belovelace/GCS_SSapT/blob/main/img/0.mbti_fianl.png" style="border-radius:50%"/>
 </div>
