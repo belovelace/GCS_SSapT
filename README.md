@@ -16,7 +16,7 @@
       </a>
       <b>김민성</b><br/>
       <img src="https://img.shields.io/badge/MBTI-INTJ-brightgreen?style=flat-square"/><br/>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://github.com/github_id1" width="80px"/>
+      <img src="https://raw.githubusercontent.com/belovelace/GCS_SSapT/main/img/1.%EA%B9%80%EB%AF%BC%EC%84%B1_QR.png" width="80px"/>
     </td>
     <td align="center" width="33%">
       <a href="https://github.com/github_id2">
@@ -24,7 +24,7 @@
       </a>
       <b>박성진</b><br/>
       <img src="https://img.shields.io/badge/MBTI-ESTJ-brightgreen?style=flat-square"/><br/>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://github.com/github_id2" width="80px"/>
+      <img src="https://raw.githubusercontent.com/belovelace/GCS_SSapT/main/img/1.%EB%B0%95%EC%84%B1%EC%A7%84_QR.png" width="80px"/>
     </td>
     <td align="center" width="33%">
       <a href="https://github.com/github_id3">
@@ -32,7 +32,7 @@
       </a>
       <b>신은지</b><br/>
       <img src="https://img.shields.io/badge/MBTI-ENTJ-brightgreen?style=flat-square"/><br/>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://github.com/github_id3" width="80px"/>
+      <img src="https://raw.githubusercontent.com/belovelace/GCS_SSapT/main/img/1.%EC%8B%A0%EC%9D%80%EC%A7%80_QR.png" width="80px"/>
     </td>
   </tr>
 </table>
@@ -53,7 +53,7 @@
         <img src="https://avatars.githubusercontent.com/u/266888813?v=4" width="80px" style="border-radius:50%"/><br/>
         <b>김민성</b>
       </a><br/><br/>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://github.com/github_id1" width="80px"/>
+      <img src="https://raw.githubusercontent.com/belovelace/GCS_SSapT/main/img/1.%EA%B9%80%EB%AF%BC%EC%84%B1_QR.png" width="80px"/>
     </td>
     <td align="center">
       <img src="https://img.shields.io/badge/MBTI-INTJ-brightgreen?style=for-the-badge"/>
@@ -80,7 +80,7 @@
         <img src="https://avatars.githubusercontent.com/u/214237547?v=4" width="80px" style="border-radius:50%"/><br/>
         <b>박성진</b>
       </a><br/><br/>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://github.com/github_id2" width="80px"/>
+      <img src="https://raw.githubusercontent.com/belovelace/GCS_SSapT/main/img/1.%EB%B0%95%EC%84%B1%EC%A7%84_QR.png" width="80px"/>
     </td>
     <td align="center">
       <img src="https://img.shields.io/badge/MBTI-ESTJ-brightgreen?style=for-the-badge"/>
@@ -109,7 +109,7 @@
         <img src="https://avatars.githubusercontent.com/u/159417728?v=4" width="80px" style="border-radius:50%"/><br/>
         <b>신은지</b>
       </a><br/><br/>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://github.com/github_id3" width="80px"/>
+      <img src="https://raw.githubusercontent.com/belovelace/GCS_SSapT/main/img/1.%EC%8B%A0%EC%9D%80%EC%A7%80_QR.png" width="80px"/>
     </td>
     <td align="center">
       <img src="https://img.shields.io/badge/MBTI-ENTJ-brightgreen?style=for-the-badge"/>
