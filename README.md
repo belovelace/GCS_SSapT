@@ -130,3 +130,7 @@
     </td>
   </tr>
 </table>
+
+<div align="center">
+ <img src="C:\dev\GCS_AI_Startup\img\mbti_fianl.png" style="border-radius:50%"/>
+</div>

@@ -28,6 +28,223 @@
       overflow-x: hidden;
     }
 
+    .profile-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 1300;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
+
+    .profile-gate.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .profile-gate-inner {
+      width: min(920px, 92vw);
+      padding: 24px 12px;
+    }
+
+    .profile-gate-title {
+      font-size: clamp(30px, 4.5vw, 64px);
+      font-weight: 500;
+      color: #f2f2f2;
+      letter-spacing: -0.01em;
+      margin-bottom: clamp(34px, 5vw, 58px);
+    }
+
+    .profile-list {
+      display: flex;
+      justify-content: center;
+      gap: clamp(22px, 4vw, 56px);
+      flex-wrap: wrap;
+    }
+
+    .profile-card-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: #9f9f9f;
+      cursor: pointer;
+      transition: transform 0.24s ease;
+    }
+
+    .profile-card-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      color: #f3f3f3;
+    }
+
+    .profile-avatar {
+      width: clamp(126px, 16vw, 188px);
+      aspect-ratio: 1 / 1;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.38);
+      border: 3px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    .profile-card-btn:hover .profile-avatar {
+      border-color: #f0f0f0;
+    }
+
+    .profile-avatar.smile-a {
+      background: linear-gradient(145deg, #2e7fff 0%, #4ca4ff 44%, #6ed9ff 100%);
+    }
+
+    .profile-avatar.smile-b {
+      background: linear-gradient(145deg, #2da84f 0%, #53c87e 44%, #95dc5e 100%);
+    }
+
+    .profile-avatar::before {
+      content: '';
+      position: absolute;
+      width: 16%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      background: #fff;
+      top: 33%;
+      left: 27%;
+      box-shadow: 170% 0 0 0 #fff;
+      opacity: 0.96;
+    }
+
+    .profile-avatar::after {
+      content: '';
+      position: absolute;
+      width: 46%;
+      height: 24%;
+      left: 27%;
+      top: 50%;
+      border-bottom: 7px solid #fff;
+      border-radius: 0 0 80px 80px;
+      transform: rotate(6deg);
+      opacity: 0.96;
+    }
+
+    .profile-name {
+      font-size: clamp(20px, 2.3vw, 34px);
+      color: inherit;
+      letter-spacing: -0.01em;
+    }
+
+    .intro-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: #000;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.65s ease, visibility 0.65s ease;
+    }
+
+    .intro-overlay.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .intro-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-stage {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: radial-gradient(circle at center, rgba(40,0,0,0.25) 0%, rgba(0,0,0,1) 58%);
+    }
+
+    .intro-logo-wrap {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: clamp(104px, 11.5vw, 176px);
+      height: clamp(148px, 17vw, 252px);
+      transform: translate(-50%, -50%) scale(0.3);
+      transform-origin: center center;
+      opacity: 0;
+      filter: drop-shadow(0 0 20px rgba(229, 9, 20, 0.28));
+      will-change: transform, opacity, filter;
+    }
+
+    .intro-logo-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .intro-core-stripes {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      clip-path: polygon(8% 7%, 92% 7%, 84% 26%, 66% 26%, 66% 95%, 34% 95%, 34% 26%, 16% 26%);
+      background:
+        repeating-linear-gradient(
+          90deg,
+          #ff1d1d 0 5px,
+          #ff8232 5px 10px,
+          #ffd54f 10px 13px,
+          #fefefe 13px 15px,
+          #f13ca8 15px 19px,
+          #7f56ff 19px 23px,
+          #2bb4ff 23px 27px,
+          #ff1d1d 27px 31px
+        );
+      background-size: 150% 100%;
+      mix-blend-mode: screen;
+      opacity: 0;
+      transform: scale(0.98);
+      filter: blur(0.15px) saturate(1.12);
+      will-change: opacity, transform, background-position;
+    }
+
+    .intro-stripes {
+      position: absolute;
+      inset: -8% -4%;
+      opacity: 0;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      will-change: opacity, filter;
+    }
+
+    .intro-stripe {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0.18);
+      transform-origin: center center;
+      border-radius: 1px;
+      background: var(--stripe-color);
+      box-shadow:
+        0 0 18px var(--stripe-glow),
+        0 0 52px var(--stripe-glow);
+      opacity: 0;
+      will-change: left, opacity, transform;
+    }
+
+    .intro-vignette {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to right, rgba(0,0,0,0.92), rgba(0,0,0,0.08) 18%, rgba(0,0,0,0.08) 82%, rgba(0,0,0,0.92)),
+        linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.04) 24%, rgba(0,0,0,0.04) 76%, rgba(0,0,0,0.86));
+    }
+
     /* ── 넷플릭스 상단 네비 ── */
     nav {
       position: fixed;
@@ -86,8 +303,8 @@
       background: linear-gradient(
         to right,
         rgba(20,20,20,0.95) 0%,
-        rgba(20,20,20,0.7) 10%,
-        rgba(20,20,20,0.1) 30%,
+        rgba(20,20,20,0.7) 40%,
+        rgba(20,20,20,0.1) 70%,
         transparent 100%
       ),
       linear-gradient(
@@ -113,10 +330,11 @@
     }
 
     .hero-badge {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 6px;
       margin-bottom: 12px;
+      width: fit-content;
     }
 
     .top10-badge {
@@ -135,12 +353,206 @@
     }
 
     .hero-name {
+      position: relative;
+      display: block;
+      width: fit-content;
       font-size: clamp(52px, 8vw, 80px);
       font-weight: 900;
-      line-height: 1;
+      line-height: 1.06;
       letter-spacing: -0.02em;
       margin-bottom: 8px;
-      text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.45);
+      overflow: visible;
+      --liquid-alpha: 0;
+      --wave-a: #ff4b56;
+      --wave-b: #e50914;
+      --wave-c: #b20710;
+    }
+
+    .hero-name-base {
+      position: relative;
+      display: block;
+      z-index: 1;
+      color: #ffffff;
+    }
+
+    .hero-liquid-layer {
+      position: absolute;
+      inset: 0;
+      display: block;
+      pointer-events: none;
+      z-index: 2;
+      opacity: calc(var(--liquid-alpha) * var(--layer-opacity));
+      will-change: clip-path, opacity;
+    }
+
+    .hero-liquid-layer.layer-a {
+      color: var(--wave-a);
+      --layer-opacity: 0.78;
+    }
+
+    .hero-liquid-layer.layer-b {
+      color: var(--wave-b);
+      --layer-opacity: 0.88;
+    }
+
+    .hero-liquid-layer.layer-c {
+      color: var(--wave-c);
+      --layer-opacity: 0.72;
+    }
+
+    .hero-liquid-layer.matrix-code {
+      color: transparent;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='56'%3E%3Ctext x='4' y='15' fill='%23d8ffd8' font-size='12' font-family='monospace'%3E0101 %26%26%3C/text%3E%3Ctext x='20' y='33' fill='%238cff8c' font-size='12' font-family='monospace'%3E%26lt;/%26gt; const%3C/text%3E%3Ctext x='8' y='51' fill='%2369f269' font-size='12' font-family='monospace'%3Eif(x)%7B%7D%3C/text%3E%3C/svg%3E");
+      background-size: 128px 52px;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: matrixFlow 1s linear infinite;
+      filter: brightness(1.08);
+    }
+
+    @keyframes matrixFlow {
+      from { background-position: 0 0; }
+      to { background-position: -24px 56px; }
+    }
+
+    .fx-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 150;
+      overflow: hidden;
+    }
+
+    .click-fx {
+      position: absolute;
+      left: var(--fx-x);
+      top: var(--fx-y);
+      width: var(--fx-size);
+      height: var(--fx-size);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .fx-particle {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+
+    @keyframes fxFadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    @keyframes starBurst {
+      0% {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    @keyframes auroraBloom {
+      0% {
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.25) rotate(24deg);
+        opacity: 0;
+      }
+    }
+
+    .fx-aurora {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 140deg,
+        rgba(129,255,210,0.35),
+        rgba(122,243,255,0.18),
+        rgba(174,255,234,0.35),
+        rgba(129,255,210,0.35)
+      );
+      filter: blur(10px);
+      animation: auroraBloom 1.4s ease-out forwards;
+    }
+
+    .fx-star {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 10px rgba(255,255,255,0.85);
+      animation: starBurst 900ms ease-out forwards;
+    }
+
+    @keyframes bubbleRise {
+      0% {
+        transform: translate(-50%, -50%) scale(0.25);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.85;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .fx-bubble {
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.9);
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.08) 65%, rgba(255,255,255,0) 100%);
+      animation: bubbleRise 920ms ease-out forwards;
+    }
+
+    @keyframes codePop {
+      0% {
+        transform: translate(-50%, -50%) scale(0.6);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.95;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .fx-code {
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: Consolas, 'Courier New', monospace;
+      background: rgba(10,18,10,0.85);
+      border: 1px solid rgba(180,255,180,0.35);
+      color: #8bff8b;
+      text-shadow: 0 0 8px rgba(139,255,139,0.5);
+      animation: codePop 1100ms ease-out forwards;
+      white-space: nowrap;
+    }
+
+    .fx-code.white {
+      color: #f4fff4;
+      border-color: rgba(255,255,255,0.4);
+      text-shadow: 0 0 8px rgba(255,255,255,0.5);
     }
 
     .hero-meta {
@@ -547,8 +959,53 @@
 </head>
 <body>
 
+<div class="profile-gate" id="profile-gate" aria-hidden="false">
+  <div class="profile-gate-inner">
+    <h1 class="profile-gate-title">쌉티를 만나볼 프로필을 선택하세요.</h1>
+    <div class="profile-list">
+      <button class="profile-card-btn" type="button" data-profile="gcs8">
+        <div class="profile-avatar smile-a" aria-hidden="true"></div>
+        <div class="profile-name">GCS 8기</div>
+      </button>
+      <button class="profile-card-btn" type="button" data-profile="gachon">
+        <div class="profile-avatar smile-b" aria-hidden="true"></div>
+        <div class="profile-name">가천대학교</div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="intro-overlay" id="intro-overlay" aria-hidden="true">
+  <div class="intro-stage" id="intro-stage">
+    <div class="intro-logo-wrap" id="intro-logo-wrap">
+      <div class="intro-core-stripes" id="intro-core-stripes"></div>
+      <svg class="intro-logo-svg" viewBox="0 0 120 170" role="presentation">
+        <defs>
+          <linearGradient id="intro-t-main" x1="8%" y1="4%" x2="92%" y2="100%">
+            <stop offset="0%" stop-color="#ff585f"></stop>
+            <stop offset="48%" stop-color="#e50914"></stop>
+            <stop offset="100%" stop-color="#91030c"></stop>
+          </linearGradient>
+          <linearGradient id="intro-t-shadow" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7a0107"></stop>
+            <stop offset="100%" stop-color="#c60610"></stop>
+          </linearGradient>
+        </defs>
+        <path d="M11 12H109L101 42H72V160H48V42H19Z" fill="url(#intro-t-main)"></path>
+        <path d="M19 42L11 12L27 12L35 42Z" fill="url(#intro-t-shadow)" opacity="0.88"></path>
+        <path d="M86 12H101L93 42H78Z" fill="#ff727c" opacity="0.44"></path>
+        <path d="M44 42H48L48 160H44Z" fill="#7b0208" opacity="0.52"></path>
+        <path d="M72 42H76L76 160H72Z" fill="#ff6d76" opacity="0.34"></path>
+      </svg>
+    </div>
+    <div class="intro-stripes" id="intro-stripes"></div>
+    <div class="intro-vignette"></div>
+  </div>
+</div>
+
+<!-- 네비 -->
 <nav>
-  <div class="netflix-logo">SsapT</div>
+  <div class="netflix-logo">SSAPT</div>
   <ul class="nav-links">
     <li><a href="#">홈</a></li>
     <li><a href="#">시리즈</a></li>
@@ -557,6 +1014,7 @@
   </ul>
 </nav>
 
+<!-- 히어로 -->
 <div class="hero" id="hero">
   <div class="hero-bg" id="hero-bg" style="background-image: url('img/김민성_히어로.png')"></div>
   <div class="hero-gradient"></div>
@@ -565,13 +1023,18 @@
       <span class="top10-badge">TOP 10</span>
       <span class="top10-rank">오늘의 팀원 순위 #1</span>
     </div>
-    <h1 class="hero-name" id="hero-name">김민성</h1>
+    <h1 class="hero-name" id="hero-name">
+      <span class="hero-name-base" id="hero-name-base">김민성</span>
+      <span class="hero-liquid-layer layer-a" id="hero-wave-a" aria-hidden="true">김민성</span>
+      <span class="hero-liquid-layer layer-b" id="hero-wave-b" aria-hidden="true">김민성</span>
+      <span class="hero-liquid-layer layer-c" id="hero-wave-c" aria-hidden="true">김민성</span>
+    </h1>
     <div class="hero-meta">
       <span class="hero-year">GCS 8기</span>
       <span class="hero-mbti" id="hero-mbti">INTJ</span>
       <span class="hero-dept" id="hero-dept">경영학과</span>
     </div>
-    <p class="hero-intro" id="hero-intro">아는 사람은 그것을 좋아하는 사람만 못하고, 좋아하는 사람은 즐기는 사람만 못하다. — 논어</p>
+    <p class="hero-intro" id="hero-intro">아는 사람은 그것을 좋아하는 사람만 못하고, 좋아하는 사람은 즐기는 사람만 못하다.</p>
     <div class="hero-buttons">
       <button class="btn-play" onclick="openModal(currentIdx)">
         <span class="play-icon">▶</span> 상세 보기
@@ -583,6 +1046,7 @@
   </div>
 </div>
 
+<!-- 팀원 썸네일 열 -->
 <div class="members-row">
   <p class="members-row-label">SSapT 팀원</p>
   <div class="members-thumbnails">
@@ -607,14 +1071,17 @@
   </div>
 </div>
 
+<!-- 세부 정보 패널 -->
 <div class="detail-panel" id="detail-panel">
   <div class="detail-grid">
+    <!-- 왼쪽 -->
     <div class="detail-left">
       <img class="detail-photo" id="detail-photo" src="https://avatars.githubusercontent.com/u/266888813?v=4" alt="프로필"/>
       <div class="detail-qr-section">
         <a class="detail-blog-link" id="detail-blog-link" href="https://www.linkedin.com/in/%EB%AF%BC%EC%84%B1-%EA%B9%80-007687390/" target="_blank">↗ LinkedIn 방문하기</a>
       </div>
     </div>
+    <!-- 오른쪽 -->
     <div class="detail-right">
       <div class="detail-title-row">
         <h2 class="detail-name" id="detail-name">김민성</h2>
@@ -624,7 +1091,7 @@
         <span class="match-score">T 적합도 98%</span>
         <span class="detail-dept-tag" id="detail-dept">경영학과</span>
       </div>
-      <p class="detail-intro-text" id="detail-intro-text">아는 사람은 그것을 좋아하는 사람만 못하고, 좋아하는 사람은 즐기는 사람만 못하다. — 논어</p>
+      <p class="detail-intro-text" id="detail-intro-text">아는 사람은 그것을 좋아하는 사람만 못하고, 좋아하는 사람은 즐기는 사람만 못하다.</p>
       <div class="detail-sections">
         <div class="detail-section">
           <p class="detail-section-title">일하는 방식</p>
@@ -656,6 +1123,7 @@
   </div>
 </div>
 
+<!-- 모달 -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -671,22 +1139,192 @@
     </div>
     <div class="modal-body">
       <p style="font-size:14px;line-height:1.75;color:#d0d0d0;font-weight:300;margin-bottom:20px" id="modal-intro"></p>
-      
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
         <div>
           <p class="detail-section-title" style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#999;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #2a2a2a">관심있는 사업 분야</p>
-          <p style="font-size:13px;line-height:1.7;color:#d0d0d0;font-weight:300" id="modal-business"></p>
+          <p style="font-size:13px;line-height:1.7;color:#d0d0d0;font-weight:300" id="modal-work"></p>
         </div>
         <div>
           <p class="detail-section-title" style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#999;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid #2a2a2a">좋아하는 책</p>
-          <p style="font-size:13px;line-height:1.7;color:#d0d0d0;font-weight:300" id="modal-book"></p>
+          <p style="font-size:13px;line-height:1.7;color:#d0d0d0;font-weight:300" id="modal-strength"></p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
+<div class="fx-layer" id="fx-layer" aria-hidden="true"></div>
+
 <script>
+  const INTRO_DURATION_MS = 5000;
+  const profileGateEl = document.getElementById('profile-gate');
+  const profileCardEls = document.querySelectorAll('.profile-card-btn');
+  const introOverlayEl = document.getElementById('intro-overlay');
+  const introLogoWrapEl = document.getElementById('intro-logo-wrap');
+  const introCoreStripesEl = document.getElementById('intro-core-stripes');
+  const introStripesEl = document.getElementById('intro-stripes');
+
+  let introHasStarted = false;
+  let introSoundPlayed = false;
+  const introAudioEl = new Audio('netflix.m4r');
+  const introStripeItems = [];
+  const introStripePalette = [
+    ['#ff2b2b', '#ff5e3a'], ['#ff7a31', '#ffd05c'], ['#f22b2b', '#ff3d7a'],
+    ['#ff9f5b', '#ffe84b'], ['#ed1f3e', '#ff779f'], ['#d61bff', '#7a78ff'],
+    ['#34a1ff', '#67e2ff'], ['#fefefe', '#ff9f9f'], ['#f1362f', '#ff3c3c'],
+    ['#ff4a7a', '#ff8fbe'], ['#2ec8ff', '#67b2ff'], ['#ff5c19', '#f9c54a']
+  ];
+
+  introAudioEl.preload = 'auto';
+  introAudioEl.volume = 0.95;
+  introAudioEl.playsInline = true;
+
+  function clamp01(value) {
+    return Math.min(1, Math.max(0, value));
+  }
+
+  function easeOutCubic(value) {
+    return 1 - Math.pow(1 - value, 3);
+  }
+
+  function easeInCubic(value) {
+    return value * value * value;
+  }
+
+  function easeInOutCubic(value) {
+    return value < 0.5
+      ? 4 * value * value * value
+      : 1 - Math.pow(-2 * value + 2, 3) / 2;
+  }
+
+  function mapRange(value, inMin, inMax) {
+    return clamp01((value - inMin) / (inMax - inMin));
+  }
+
+  function initIntroStripes() {
+    if (introStripesEl.dataset.ready === '1') {
+      return;
+    }
+
+    const count = 140;
+    for (let i = 0; i < count; i += 1) {
+      const stripe = document.createElement('span');
+      stripe.className = 'intro-stripe';
+      const palette = introStripePalette[Math.floor(Math.random() * introStripePalette.length)];
+      const width = 1.2 + (Math.random() * 10.5);
+      const intensity = 0.45 + (Math.random() * 0.75);
+      const startX = (Math.random() * 12) - 6;
+      const spread = Math.sign(Math.random() - 0.5) * Math.pow(Math.random(), 0.56) * 86;
+      const delay = Math.random() * 0.28;
+      const flare = 0.85 + (Math.random() * 0.65);
+
+      stripe.style.width = `${width.toFixed(2)}px`;
+      stripe.style.setProperty('--stripe-color', `linear-gradient(to bottom, ${palette[0]} 0%, ${palette[1]} 100%)`);
+      stripe.style.setProperty('--stripe-glow', palette[1]);
+
+      introStripeItems.push({
+        el: stripe,
+        startX,
+        targetX: spread,
+        delay,
+        intensity,
+        flare
+      });
+
+      introStripesEl.appendChild(stripe);
+    }
+    introStripesEl.dataset.ready = '1';
+  }
+
+  function renderIntroStripes(progress) {
+    const split = mapRange(progress, 0.36, 0.86);
+    const settle = mapRange(progress, 0.86, 1);
+    const splitEase = easeInOutCubic(split);
+    const bridge = easeInOutCubic(mapRange(progress, 0.36, 0.68));
+
+    const stageOpacity = split > 0 ? splitEase * (1 - (settle * 0.92)) : 0;
+    introStripesEl.style.opacity = stageOpacity.toFixed(3);
+    introStripesEl.style.filter = `brightness(${(1.03 + (splitEase * 0.4)).toFixed(3)}) saturate(${(1 + (splitEase * 0.5)).toFixed(3)})`;
+
+    introCoreStripesEl.style.opacity = ((1 - splitEase) * (0.18 + (bridge * 0.82))).toFixed(3);
+    introCoreStripesEl.style.transform = `scale(${(0.98 + (bridge * 0.08)).toFixed(3)})`;
+    introCoreStripesEl.style.backgroundPosition = `${(-progress * 240).toFixed(2)}px 0`;
+
+    introStripeItems.forEach((stripe) => {
+      const local = clamp01((splitEase - stripe.delay) * 1.36);
+      const travel = easeOutCubic(local);
+      const x = stripe.startX + ((stripe.targetX - stripe.startX) * travel);
+      const alpha = (0.1 + local) * (0.28 + (stripe.intensity * 0.72)) * (1 - (settle * 0.88));
+      const scaleX = 0.2 + (travel * stripe.flare);
+
+      stripe.el.style.left = `${(50 + x).toFixed(3)}%`;
+      stripe.el.style.opacity = Math.max(0, alpha).toFixed(3);
+      stripe.el.style.transform = `translateX(-50%) scaleX(${scaleX.toFixed(3)})`;
+    });
+  }
+
+  async function startIntroSound() {
+    if (introSoundPlayed) {
+      return;
+    }
+    introAudioEl.currentTime = 0;
+    await introAudioEl.play();
+    introSoundPlayed = true;
+  }
+
+  function startIntroAnimation() {
+    initIntroStripes();
+
+    const introStart = performance.now();
+    function frame(now) {
+      const progress = clamp01((now - introStart) / INTRO_DURATION_MS);
+      const appear = easeOutCubic(mapRange(progress, 0, 0.2));
+      const zoom = easeInOutCubic(mapRange(progress, 0.16, 0.58));
+      const split = easeInCubic(mapRange(progress, 0.48, 0.84));
+      const fade = easeInOutCubic(mapRange(progress, 0.84, 1));
+
+      const scale = 0.26 + (appear * 1.08) + (zoom * 1.92) + (split * 2.18);
+      const logoFadeBySplit = 1 - (split * 0.72);
+      const logoOpacity = (0.1 + (appear * 0.9)) * logoFadeBySplit * (1 - (fade * 0.94));
+      const glow = 14 + (split * 32);
+
+      introLogoWrapEl.style.opacity = logoOpacity.toFixed(3);
+      introLogoWrapEl.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(3)})`;
+      introLogoWrapEl.style.filter = `drop-shadow(0 0 ${glow.toFixed(1)}px rgba(229,9,20,${(0.22 + (split * 0.43)).toFixed(3)}))`;
+
+      renderIntroStripes(progress);
+
+      if (progress < 1) {
+        requestAnimationFrame(frame);
+        return;
+      }
+
+      introOverlayEl.classList.add('hidden');
+      setTimeout(() => {
+        introOverlayEl.remove();
+        introAudioEl.pause();
+      }, 700);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function beginExperience() {
+    if (introHasStarted) {
+      return;
+    }
+    introHasStarted = true;
+    profileGateEl.classList.add('hidden');
+    profileGateEl.setAttribute('aria-hidden', 'true');
+    introOverlayEl.classList.add('active');
+    introOverlayEl.setAttribute('aria-hidden', 'false');
+    startIntroSound().catch(() => {});
+    requestAnimationFrame(startIntroAnimation);
+  }
+
+  profileCardEls.forEach((btn) => {
+    btn.addEventListener('click', beginExperience);
+  });
+
   const members = [
     {
       name: '김민성',
@@ -694,9 +1332,9 @@
       dept: '경영학과',
       photo: 'https://avatars.githubusercontent.com/u/266888813?v=4',
       heroBg: 'img/김민성_히어로.png',
-      intro: '아는 사람은 그것을 좋아하는 사람만 못하고, 좋아하는 사람은 즐기는 사람만 못하다. — 논어',
-      business: 'IT 기반 서비스 기획',
-      book: '논어',
+      intro: '아는 사람은 그것을 좋아하는 사람만 못하고, 좋아하는 사람은 즐기는 사람만 못하다.',
+      business: '자동화시스템 활용한 공장자동화 솔루션, 삶을 더 편리하게 바꾸는 솔루션',
+      book: '데미안, 마션, 프로젝트 헤일메리',
       work: '모든 일은 즐기면서, 최대한 효율적으로, 완벽하게',
       strength: '긍정적 사고 · 비판적 사고 탑재 · 다양한 지식 탑재 (로컬 환경에서 돌리는 LLM 수준 지식 확보)',
       hobbies: ['요리하기', '여행하기', '별 보러가기'],
@@ -755,7 +1393,8 @@
 
     // 히어로 업데이트
     document.getElementById('hero-bg').style.backgroundImage = `url('${m.heroBg}')`;
-    document.getElementById('hero-name').textContent = m.name;
+    setHeroNameText(m.name);
+    applyLiquidTheme(idx);
     document.getElementById('hero-mbti').textContent = m.mbti;
     document.getElementById('hero-dept').textContent = m.dept;
     document.getElementById('hero-intro').textContent = m.intro;
@@ -766,8 +1405,8 @@
     document.getElementById('detail-mbti').textContent = m.mbti;
     document.getElementById('detail-dept').textContent = m.dept;
     document.getElementById('detail-intro-text').textContent = m.intro;
-    document.getElementById('detail-work').textContent = m.work;
-    document.getElementById('detail-strength').textContent = m.strength;
+    document.getElementById('detail-work').textContent = m.business;
+    document.getElementById('detail-strength').innerHTML = m.book;
     document.getElementById('detail-blog-link').href = m.blogUrl;
     document.getElementById('detail-blog-link').textContent = `↗ ${m.blogLabel}`;
 
@@ -799,11 +1438,8 @@
     document.getElementById('modal-mbti').textContent = m.mbti;
     document.getElementById('modal-dept').textContent = m.dept;
     document.getElementById('modal-intro').textContent = m.intro;
-    
-    // 추가된 변수 맵핑
-    document.getElementById('modal-business').textContent = m.business;
-    document.getElementById('modal-book').innerHTML = m.book;
-    
+    document.getElementById('modal-work').textContent = m.business;
+    document.getElementById('modal-strength').innerHTML = m.book;
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
@@ -814,6 +1450,225 @@
       document.body.style.overflow = '';
     }
   }
+
+  const heroNameEl = document.getElementById('hero-name');
+  const heroNameBaseEl = document.getElementById('hero-name-base');
+  const heroWaveEls = [
+    document.getElementById('hero-wave-a'),
+    document.getElementById('hero-wave-b'),
+    document.getElementById('hero-wave-c')
+  ];
+  const fxLayerEl = document.getElementById('fx-layer');
+  const LIQUID_START = 0.1;
+  const liquidState = {
+    pointerX: window.innerWidth / 2,
+    pointerY: window.innerHeight / 2,
+    targetMagnet: 0,
+    magnet: 0,
+    x: 50,
+    y: 50,
+    t: 0
+  };
+
+  const waveConfigs = [
+    { base: 82, ampMin: 1.2, ampMax: 12, speed: 1.18, freq: 0.9, phase: 0.1 },
+    { base: 87, ampMin: 1.0, ampMax: 10, speed: 1.35, freq: 1.1, phase: 1.2 },
+    { base: 91, ampMin: 0.8, ampMax: 8.6, speed: 1.58, freq: 1.28, phase: 2.35 }
+  ];
+  const liquidThemes = [
+    { colors: ['#b993ff', '#ff9de0', '#73a3ff'], matrix: false },
+    { colors: ['#ffe07a', '#ffc83a', '#e0a61a'], matrix: false },
+    { colors: ['#a4ff9e', '#57e977', '#1fb956'], matrix: true }
+  ];
+
+  function setHeroNameText(text) {
+    heroNameBaseEl.textContent = text;
+    heroWaveEls.forEach((el) => {
+      el.textContent = text;
+    });
+  }
+
+  function applyLiquidTheme(memberIdx) {
+    const theme = liquidThemes[memberIdx] || liquidThemes[0];
+    heroNameEl.style.setProperty('--wave-a', theme.colors[0]);
+    heroNameEl.style.setProperty('--wave-b', theme.colors[1]);
+    heroNameEl.style.setProperty('--wave-c', theme.colors[2]);
+    heroWaveEls.forEach((el) => el.classList.remove('matrix-code'));
+    if (theme.matrix) {
+      heroWaveEls[2].classList.add('matrix-code');
+    }
+  }
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function buildWavePolygon(base, amp, phase, freq, pull) {
+    const points = ['0% 100%'];
+    const segments = 8;
+    for (let i = 0; i <= segments; i += 1) {
+      const ratio = i / segments;
+      const x = ratio * 100;
+      const sway = Math.sin(phase + (i * freq)) * amp;
+      const slope = (ratio - 0.5) * pull;
+      const y = clamp(base + sway + slope, 54, 99.6);
+      points.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+    }
+    points.push('100% 100%');
+    return `polygon(${points.join(',')})`;
+  }
+
+  function updateLiquidTarget(clientX, clientY) {
+    liquidState.pointerX = clientX;
+    liquidState.pointerY = clientY;
+    const rect = heroNameEl.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = clientX - cx;
+    const dy = clientY - cy;
+    const dist = Math.hypot(dx, dy);
+    const radius = Math.max(rect.width, rect.height) * 1.9;
+    liquidState.targetMagnet = Math.max(0, Math.min(1, 1 - dist / radius));
+  }
+
+  window.addEventListener('pointermove', (e) => {
+    updateLiquidTarget(e.clientX, e.clientY);
+  });
+
+  window.addEventListener('pointerleave', () => {
+    liquidState.targetMagnet = 0;
+  });
+
+  function animateLiquid() {
+    liquidState.t += 0.05;
+    liquidState.magnet += (liquidState.targetMagnet - liquidState.magnet) * 0.08;
+    const activeMag = clamp((liquidState.magnet - LIQUID_START) / (1 - LIQUID_START), 0, 1);
+    const rect = heroNameEl.getBoundingClientRect();
+    const px = ((liquidState.pointerX - rect.left) / rect.width) * 100;
+    const tx = 50 + (px - 50) * activeMag;
+
+    liquidState.x += (tx - liquidState.x) * 0.14;
+    liquidState.t += 0.02 + (activeMag * 0.04);
+
+    const alpha = activeMag <= 0 ? 0 : Math.pow(activeMag, 0.82);
+    const pull = ((liquidState.x - 50) / 50) * (5 + (activeMag * 20));
+
+    heroNameEl.style.setProperty('--liquid-alpha', alpha.toFixed(3));
+
+    heroWaveEls.forEach((el, idx) => {
+      const cfg = waveConfigs[idx];
+      const amp = (cfg.ampMin + ((cfg.ampMax - cfg.ampMin) * activeMag)) * (1 + (activeMag * 0.15));
+      const base = cfg.base - (activeMag * (2.2 + (idx * 1.4)));
+      const phase = (liquidState.t * cfg.speed) + cfg.phase;
+      const clip = buildWavePolygon(base, amp, phase, cfg.freq, pull * (1 + (idx * 0.3)));
+      el.style.clipPath = clip;
+    });
+
+    requestAnimationFrame(animateLiquid);
+  }
+
+  function rand(min, max) {
+    return min + Math.random() * (max - min);
+  }
+
+  function createFxRoot(x, y) {
+    const root = document.createElement('div');
+    const size = rand(100, 200);
+    root.className = 'click-fx';
+    root.style.setProperty('--fx-x', `${x}px`);
+    root.style.setProperty('--fx-y', `${y}px`);
+    root.style.setProperty('--fx-size', `${size}px`);
+    fxLayerEl.appendChild(root);
+    return { root, size };
+  }
+
+  function createAuroraStars(x, y) {
+    const { root, size } = createFxRoot(x, y);
+    const aurora = document.createElement('div');
+    aurora.className = 'fx-particle fx-aurora';
+    root.appendChild(aurora);
+
+    const count = 16;
+    for (let i = 0; i < count; i += 1) {
+      const p = document.createElement('span');
+      const angle = rand(0, Math.PI * 2);
+      const radius = rand(size * 0.12, size * 0.45);
+      p.className = 'fx-particle fx-star';
+      p.style.setProperty('--tx', `${Math.cos(angle) * radius}px`);
+      p.style.setProperty('--ty', `${Math.sin(angle) * radius}px`);
+      p.style.width = `${rand(2, 5)}px`;
+      p.style.height = p.style.width;
+      p.style.animationDelay = `${rand(0, 140)}ms`;
+      root.appendChild(p);
+    }
+
+    setTimeout(() => root.remove(), 1600);
+  }
+
+  function createBeerBubbles(x, y) {
+    const { root, size } = createFxRoot(x, y);
+    const count = 18;
+    for (let i = 0; i < count; i += 1) {
+      const p = document.createElement('span');
+      const up = rand(size * 0.2, size * 0.75);
+      const drift = rand(-size * 0.35, size * 0.35);
+      p.className = 'fx-particle fx-bubble';
+      p.style.setProperty('--tx', `${drift}px`);
+      p.style.setProperty('--ty', `${-up}px`);
+      const d = rand(5, 15);
+      p.style.width = `${d}px`;
+      p.style.height = `${d}px`;
+      p.style.animationDelay = `${rand(0, 180)}ms`;
+      root.appendChild(p);
+    }
+
+    setTimeout(() => root.remove(), 1400);
+  }
+
+  function createCodeBurst(x, y) {
+    const { root, size } = createFxRoot(x, y);
+    const tokens = ['{...}', 'const', '=>', 'if()', 'async', '</>', '[]', '&&', 'return', 'while'];
+    const count = 10;
+    for (let i = 0; i < count; i += 1) {
+      const p = document.createElement('span');
+      const angle = rand(-Math.PI * 0.9, -Math.PI * 0.1);
+      const radius = rand(size * 0.18, size * 0.6);
+      p.className = `fx-particle fx-code${Math.random() > 0.5 ? ' white' : ''}`;
+      p.textContent = tokens[Math.floor(Math.random() * tokens.length)];
+      p.style.setProperty('--tx', `${Math.cos(angle) * radius}px`);
+      p.style.setProperty('--ty', `${Math.sin(angle) * radius}px`);
+      p.style.animationDelay = `${rand(0, 120)}ms`;
+      root.appendChild(p);
+    }
+
+    setTimeout(() => root.remove(), 1700);
+  }
+
+  function spawnMemberClickEffect(x, y) {
+    if (currentIdx === 0) {
+      createAuroraStars(x, y);
+      return;
+    }
+    if (currentIdx === 1) {
+      createBeerBubbles(x, y);
+      return;
+    }
+    createCodeBurst(x, y);
+  }
+
+  window.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) {
+      return;
+    }
+    if (document.getElementById('modal').classList.contains('open') || e.target.closest('.modal')) {
+      return;
+    }
+    spawnMemberClickEffect(e.clientX, e.clientY);
+  });
+
+  setHeroNameText(heroNameBaseEl.textContent);
+  applyLiquidTheme(currentIdx);
+  animateLiquid();
 </script>
 </body>
 </html>
